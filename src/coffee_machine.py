@@ -84,7 +84,7 @@ class CoffeeMachine:
         self.tank_content = 60
 
     def fill_beans(self):
-        self.beans_content = 39
+        self.beans_content = 40
 
     def empty_grounds(self):
         self.grounds_content = 0
