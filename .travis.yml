@@ -13,4 +13,4 @@ script:
  - behave --format json -o results/results.json
 
 after_script:
- - hiptest-publisher -c behave.conf --token=$SECRET_TOKEN --push=results/results.json --test-run-id=16134
+ - hiptest-publisher -c behave.conf --push=results/results.json --test-run-id=536761
