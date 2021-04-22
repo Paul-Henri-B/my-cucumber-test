@@ -2,7 +2,7 @@ language: python
 sudo: false
 
 before_install:
-  - pip install behave
+  - pip install behave selenium
   - rvm install 2.5
   - rvm use 2.5
   - gem install nokogiri -v 1.10.10
