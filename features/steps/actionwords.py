@@ -34,7 +34,7 @@ class Actionwords:
         for hospitalBudget in self.allocations:
             total += hospitalBudget
         #assert total == self.budget
-	assert total == self.budget + 1
+        assert total == (self.budget + 1)
 
     def all_allocations_must_be_superior_to_p1(self, p1):
         minBudget = int(p1)
