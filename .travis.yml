@@ -7,10 +7,10 @@ before_install:
   - rvm use 2.5
   - gem install nokogiri -v 1.10.10
   - gem install hiptest-publisher
-  - "hiptest-publisher -c behave.conf --only=features,step_definitions --test-run-id=536761"
+  - "hiptest-publisher -c hiptest-publisher.conf --only=features,step_definitions --test-run-id=537054"
 
 script:
  - behave --format json -o results/results.json
 
 after_script:
- - hiptest-publisher -c behave.conf --push=results/results.json --test-run-id=536761
+ - hiptest-publisher -c hiptest-publisher.conf --push=results/results.json --test-run-id=537054
