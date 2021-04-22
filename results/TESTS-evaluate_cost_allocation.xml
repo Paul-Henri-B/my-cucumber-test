@@ -1,0 +1,61 @@
+<testsuite name="evaluate_cost_allocation.Evaluate cost allocation" tests="5" errors="0" failures="0" skipped="0" time="59.571439" timestamp="2021-04-22T09:50:43.737035" hostname="FR3033399W1"><testcase classname="evaluate_cost_allocation.Evaluate cost allocation" name="Test all budget is allocated" status="passed" time="0.007003"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Test all budget is allocated
+    Given a total budget of "500" ... passed in 0.005s
+    And an hospital list ... passed in 0.001s
+    When the cost allocation matrix is generated ... passed in 0.001s
+    Then the output is equal to the total budget ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="evaluate_cost_allocation.Evaluate cost allocation" name="Test minimum allocations -- @1.1 " status="passed" time="0.012074"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Test minimum allocations -- @1.1 
+    Given a total budget of "100" ... passed in 0.004s
+    And an hospital list ... passed in 0.004s
+    When the cost allocation matrix is generated ... passed in 0.001s
+    Then all allocations must be superior to "30" ... passed in 0.003s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="evaluate_cost_allocation.Evaluate cost allocation" name="Test minimum allocations -- @1.2 " status="passed" time="0.010106"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Test minimum allocations -- @1.2 
+    Given a total budget of "200" ... passed in 0.002s
+    And an hospital list ... passed in 0.001s
+    When the cost allocation matrix is generated ... passed in 0.002s
+    Then all allocations must be superior to "60" ... passed in 0.005s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="evaluate_cost_allocation.Evaluate cost allocation" name="Launch browser and search for people -- @1.1 " status="passed" time="28.125729"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Launch browser and search for people -- @1.1 
+    Given a launched browser on main ATIH page ... passed in 19.342s
+    And a "Max" and a "Bensadon" ... passed in 0.004s
+    When the main page is visited and searched for user identity ... passed in 6.932s
+    Then the searched text appears in results header ... passed in 1.847s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="evaluate_cost_allocation.Evaluate cost allocation" name="Launch browser and search for people -- @1.2 " status="passed" time="31.416527"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Launch browser and search for people -- @1.2 
+    Given a launched browser on main ATIH page ... passed in 19.952s
+    And a "Emmanuel" and a "Thammavong" ... passed in 0.017s
+    When the main page is visited and searched for user identity ... passed in 9.664s
+    Then the searched text appears in results header ... passed in 1.783s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

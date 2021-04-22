@@ -1,89 +1,59 @@
 # encoding: UTF-8
 from behave import *
-from src.coffee_machine import CoffeeMachine
+from src.allocation import allocate_cost
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
+
+
 
 class Actionwords:
     def __init__(self):
-        self.sut = CoffeeMachine()
-        self.handled = []
+        self.budget = None
+        self.hospitalList = None
+        self.allocations = None
 
-    def i_start_the_coffee_machine_using_language_lang(self, lang = "en"):
-        self.sut.start(lang)
+    def a_total_budget_of_p1(self, p1):
+        self.budget = int(p1)
 
-    def i_shutdown_the_coffee_machine(self):
-        self.sut.stop()
+    def an_hospital_list(self):
+        self.hospitalList = {'hospital1': 300, 
+			     'hospital2': 500,
+			     'hospital3': 800}
 
-    def message_message_should_be_displayed(self, message):
-        assert (self.sut.message == message) is True
+    def the_cost_allocation_matrix_is_generated(self):
+        self.allocations = allocate_cost(self.budget, self.hospitalList)
 
-    def coffee_should_be_served(self):
-        assert self.sut.coffee_served is True
+    def the_output_is_equal_to_the_total_budget(self):
+        total = 0
+        for hospitalBudget in self.allocations:
+            total += hospitalBudget
+        assert total == self.budget
+	#assert total == self.budget + 1
 
-    def coffee_should_not_be_served(self):
-        assert self.sut.coffee_served is False
+    def all_allocations_must_be_superior_to_p1(self, p1):
+        minBudget = int(p1)
+        assert all([a >= minBudget for a in self.allocations]) is True
 
-    def i_take_a_coffee(self):
-        self.sut.take_coffee()
+    def a_launched_browser_on_main_atih_page(self):
+        self.driver = webdriver.Firefox()
 
-    def i_empty_the_coffee_grounds(self):
-        self.sut.empty_grounds()
+    def a_p1_and_a_p2(self, p1, p2):
+        self.firstName = p1
+        self.lastName = p2
 
-    def i_fill_the_beans_tank(self):
-        self.sut.fill_beans()
+    def the_main_page_is_visited_and_searched_for_user_identity(self):
+        self.driver.get("https://www.atih.sante.fr/")
+        time.sleep(1)
+        elem = self.driver.find_element_by_id('edit-terms')
+        elem.send_keys(self.firstName + ' ' + self.lastName)
+        elem.send_keys(Keys.ENTER)
 
-    def i_fill_the_water_tank(self):
-        self.sut.fill_tank()
-
-    def i_take_coffee_number_coffees(self, coffee_number = 10):
-        coffee_number = int(coffee_number)
-
-        while (coffee_number > 0):
-            self.i_take_a_coffee()
-            coffee_number = coffee_number - 1
-
-            if 'water' in self.handled:
-                self.i_fill_the_water_tank()
-
-            if 'beans' in self.handled:
-                self.i_fill_the_beans_tank()
-
-            if 'grounds' in self.handled:
-                self.i_empty_the_coffee_grounds()
-
-    def the_coffee_machine_is_started(self):
-        self.i_start_the_coffee_machine_using_language_lang()
-
-    def i_handle_water_tank(self):
-        self.handled.append('water')
-
-    def i_handle_beans(self):
-        self.handled.append('beans')
-
-    def i_handle_coffee_grounds(self):
-        self.handled.append('grounds')
-
-    def i_handle_everything_except_the_water_tank(self):
-        self.i_handle_coffee_grounds()
-        self.i_handle_beans()
-
-    def i_handle_everything_except_the_beans(self):
-        self.i_handle_water_tank()
-        self.i_handle_coffee_grounds()
-
-    def i_handle_everything_except_the_grounds(self):
-        self.i_handle_water_tank()
-        self.i_handle_beans()
-
-    def displayed_message_is(self, free_text = ""):
-        self.message_message_should_be_displayed(message = free_text)
-
-    def i_switch_to_settings_mode(self):
-        self.sut.show_settings()
-
-    def settings_should_be(self, datatable = "||"):
-        # Apparently, no way to get the raw table and assert_equals does not work that much ...
-        expected = [datatable.rows[0].headings]
-        for row in datatable.rows:
-            expected.append([c for c in row])
-
-        assert (expected == [[str(k), str(v)] for k, v in self.sut.get_settings().items()]) is True
+    def the_searched_text_appears_in_results_header(self):
+        block = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "h1.text-title-flat")))
+        texts = block.find_elements_by_css_selector("strong")
+        text = texts[1].get_attribute("innerHTML")
+        assert text == (self.firstName + ' ' + self.lastName)

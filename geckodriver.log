@@ -1,0 +1,19 @@
+1619077784755	geckodriver	INFO	Listening on 127.0.0.1:49657
+1619077784817	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\PBehague\\AppData\\Local\\Temp\\rust_mozprofileiW2Jer"
+1619077790684	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1619077802534	Marionette	INFO	Listening on port 49671
+1619077803092	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://code.jquery.com/jquery-1.9.1.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 125: Error: Invalid autocomplete selectedIndex
+JavaScript warning: https://code.jquery.com/jquery-1.9.1.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1619078010598	Marionette	INFO	Stopped listening on port 49671
+9077815507	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\PBehague\\AppData\\Local\\Temp\\rust_mozprofileJFNUIX"
+1619077819810	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1619077831411	Marionette	INFO	Listening on port 49792
+1619077831927	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://code.jquery.com/jquery-1.9.1.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 125: Error: Invalid autocomplete selectedIndex
+JavaScript warning: https://code.jquery.com/jquery-1.9.1.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1619078011094	Marionette	INFO	Stopped listening on port 49792

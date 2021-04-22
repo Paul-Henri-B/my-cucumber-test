@@ -9,92 +9,46 @@ from behave import *
 use_step_matcher('re')
 
 
-@when(r'I start the coffee machine using language "(.*)"')
-def impl(context, lang = "en"):
-    context.actionwords.i_start_the_coffee_machine_using_language_lang(lang)
-
-
-@given(r'I handle everything except the water tank')
+@when(r'the main page is visited and searched for user identity')
 def impl(context):
-    context.actionwords.i_handle_everything_except_the_water_tank()
+    context.actionwords.the_main_page_is_visited_and_searched_for_user_identity()
 
 
-@given(r'I handle everything except the grounds')
+@then(r'the searched text appears in results header')
 def impl(context):
-    context.actionwords.i_handle_everything_except_the_grounds()
+    context.actionwords.the_searched_text_appears_in_results_header()
 
 
-@given(r'I handle everything except the beans')
+@then(r'all allocations must be superior to "(.*)"')
+def impl(context, p1):
+    context.actionwords.all_allocations_must_be_superior_to_p1(p1)
+
+
+@then(r'the output is equal to the total budget')
 def impl(context):
-    context.actionwords.i_handle_everything_except_the_beans()
+    context.actionwords.the_output_is_equal_to_the_total_budget()
 
 
-@then(r'message "(.*)" should be displayed')
-def impl(context, message = ""):
-    context.actionwords.message_message_should_be_displayed(message)
-
-
-@given(r'the coffee machine is started')
+@when(r'the cost allocation matrix is generated')
 def impl(context):
-    context.actionwords.the_coffee_machine_is_started()
+    context.actionwords.the_cost_allocation_matrix_is_generated()
 
 
-@when(r'I shutdown the coffee machine')
+@given(r'a launched browser on main ATIH page')
 def impl(context):
-    context.actionwords.i_shutdown_the_coffee_machine()
+    context.actionwords.a_launched_browser_on_main_atih_page()
 
 
-@then(r'coffee should not be served')
+@given(r'a total budget of "(.*)"')
+def impl(context, p1):
+    context.actionwords.a_total_budget_of_p1(p1)
+
+
+@given(r'a "(.*)" and a "(.*)"')
+def impl(context, p1, p2):
+    context.actionwords.a_p1_and_a_p2(p1, p2)
+
+
+@given(r'an hospital list')
 def impl(context):
-    context.actionwords.coffee_should_not_be_served()
-
-
-@when(r'I empty the coffee grounds')
-def impl(context):
-    context.actionwords.i_empty_the_coffee_grounds()
-
-
-@when(r'I switch to settings mode')
-def impl(context):
-    context.actionwords.i_switch_to_settings_mode()
-
-
-@then(r'coffee should be served')
-def impl(context):
-    context.actionwords.coffee_should_be_served()
-
-
-
-
-@then(r'displayed message is')
-def impl(context, free_text = ""):
-    context.actionwords.displayed_message_is(context.text)
-
-
-@when(r'I take "(.*)" coffees')
-def impl(context, coffee_number = 10):
-    context.actionwords.i_take_coffee_number_coffees(coffee_number)
-
-
-@when(r'I fill the water tank')
-def impl(context):
-    context.actionwords.i_fill_the_water_tank()
-
-
-@when(r'I fill the beans tank')
-def impl(context):
-    context.actionwords.i_fill_the_beans_tank()
-
-
-@then(r'settings should be')
-def impl(context, datatable = "||"):
-    context.actionwords.settings_should_be(context.table)
-
-
-
-
-@when(r'I take a coffee')
-def impl(context):
-    context.actionwords.i_take_a_coffee()
-
-
+    context.actionwords.an_hospital_list()
