@@ -2,7 +2,7 @@ language: python
 sudo: false
 
 before_install:
-  - apt-get install -y firefox
+  - sudo apt-get install -y firefox
   - pip install behave selenium
   - rvm install 2.5
   - rvm use 2.5
