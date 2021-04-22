@@ -6,9 +6,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.firefox.options import Options
 import time
 
-
+options = Options()
+options.headless = True
 
 class Actionwords:
     def __init__(self):
@@ -39,7 +41,7 @@ class Actionwords:
         assert all([a >= minBudget for a in self.allocations]) is True
 
     def a_launched_browser_on_main_atih_page(self):
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Firefox(options=options)
 
     def a_p1_and_a_p2(self, p1, p2):
         self.firstName = p1
