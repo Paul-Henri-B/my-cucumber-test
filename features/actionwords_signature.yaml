@@ -39,3 +39,11 @@
   uid: 2a44caf9-9785-49c7-9918-d280c420ccf9
   parameters: []
   body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: a budget
+  uid: ef8926fb-d63f-43f7-89b7-933552adc10c
+  parameters: []
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: I buy something
+  uid: 5b6f4e87-61e5-4526-9fee-f3302e1f4c5f
+  parameters: []
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
