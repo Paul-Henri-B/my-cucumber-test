@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# encoding: UTF-8 |
 from behave import *
 from src.allocation import allocate_cost
 from selenium import webdriver
